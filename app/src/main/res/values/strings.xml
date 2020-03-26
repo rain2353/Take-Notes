@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Take Notes</string>
+    <string name="memo">Memo</string>
+    <string name="picture">Picture</string>
+    <string name="video">Video</string>
+    <string name="recording">Recording</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
