@@ -1,10 +1,9 @@
 package com.example.takenotes.Api
 
 
+import com.example.takenotes.Model.Memo
 import io.reactivex.Observable
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface INodeJS {
 
@@ -27,4 +26,19 @@ interface INodeJS {
         @Field("email") email: String?,
         @Field("password") password: String?
     ): Observable<String>
+
+    // 메모 작성
+    @POST("writeMemo")
+    @FormUrlEncoded
+    fun WriteMemoUpload(
+        @Field("email") email:String?,
+        @Field("title") title:String?,
+        @Field("content") content:String?
+    ): Observable<String>
+
+    // 작성한 메모 리스트 불러오기
+    @GET("MemoList/{email}")
+    fun MemoList(
+        @Path("email") email: String?
+    ): Observable<List<Memo>>
 }
