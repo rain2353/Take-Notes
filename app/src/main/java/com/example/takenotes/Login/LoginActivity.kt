@@ -1,7 +1,6 @@
 package com.example.takenotes.Login
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +11,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
+import com.example.takenotes.Common.Common
 import com.example.takenotes.Main.MainActivity
+import com.example.takenotes.Model.User
 import com.example.takenotes.R
 import com.example.takenotes.Register.RegisterActivity
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -116,6 +118,9 @@ class LoginActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { message ->
                 if (message.contains("encrypted_password")) {
+                    val Gson = Gson()                       // 서버에서 Json 형태로 들어오는 DB를 Gson으로 변환하여 DB를 사용한다.
+                    val UserDTO = Gson.fromJson(message, User::class.java)
+                    Common.UserInfomation = UserDTO
                     Toast.makeText(this, "로그인 하셨습니다.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
