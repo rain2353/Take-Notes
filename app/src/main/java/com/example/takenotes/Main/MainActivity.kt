@@ -23,11 +23,10 @@ class MainActivity : AppCompatActivity() {
         var selectedFragment: Fragment? = null
 
         when(it.itemId) {
-            R.id.navigation_memo -> selectedFragment = MemoFragment()
-            R.id.navigation_picture -> selectedFragment = PictureFragment()
-            R.id.navigation_video -> selectedFragment = VideoFragment()
-            R.id.navigation_recording -> selectedFragment =
-                RecordingFragment()
+            R.id.navigation_memo -> selectedFragment = MemoFragment()          // 사용자가 작성한 메모를 볼 수 있는 프래그먼트
+            R.id.navigation_picture -> selectedFragment = PictureFragment()   // 사용자가 업로드한 이미지들을 볼 수 있는 프래그먼트
+            R.id.navigation_video -> selectedFragment = VideoFragment()         // 사용자가 업로드한 동영상을 볼 수 있는 프래그먼트
+            R.id.navigation_recording -> selectedFragment = RecordingFragment() // 사용자가 업로드한 음성녹음을 들을 수 있는 프래그먼트
         }
 
         selectedFragment?.let { it1 ->
