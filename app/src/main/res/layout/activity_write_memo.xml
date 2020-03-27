@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Memo.WriteMemoActivity.WriteMemoActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f6416c"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/WriteMemoToolbar"
+        app:titleTextColor="#FFFFFF"
+        app:subtitleTextColor="#FFFFFF"/>
+    <EditText
+        android:id="@+id/editMemoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="100"
+        android:hint="@string/제목"
+        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/editMemoContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/내용"
+        android:inputType="textMultiLine"
+        android:importantForAutofill="no"
+        android:textColor="#000000"/>
+</LinearLayout>
