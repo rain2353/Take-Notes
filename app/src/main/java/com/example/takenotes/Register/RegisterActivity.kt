@@ -1,10 +1,12 @@
 package com.example.takenotes.Register
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Login.LoginActivity
@@ -13,6 +15,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_register.*
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,6 +29,85 @@ class RegisterActivity : AppCompatActivity() {
         //Init API
         val retrofit = RetrofitClient.instance
         myAPI = retrofit.create(INodeJS::class.java)
+
+
+        // 이메일의 형식이 맞으면 에러 메세지가 나오지 않고 형식이 틀리다면 에러 메세지를 사용자에게 보여준다.
+        editEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+            override fun onTextChanged(
+                s: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+            override fun afterTextChanged(s: Editable) {
+                if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
+                    EmailTextInputLayout.error = "이메일 형식이 아닙니다."
+                } else {
+                    EmailTextInputLayout.error = null // null은 에러 메시지를 지워주는 기능
+                }
+            }
+        })
+
+        // 비밀번호의 형식이 맞으면 에러 메세지가 나오지 않고 형식이 틀리다면 에러 메세지를 사용자에게 보여준다.
+        editPassword.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+            override fun onTextChanged(
+                s: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+            override fun afterTextChanged(s: Editable) {
+                val passMatches = Regex("^(?=.*[a-zA-Z0-9])(?=.*[!@#\$%^*+=-]).{8,20}$")
+                if (!s.matches(passMatches)) {
+                    PasswordTextInputLayout.error = "영 소, 대문자와 숫자,특별기호를 함께 사용 해주세요. 8~20 제한"
+                } else {
+                    PasswordTextInputLayout.error = null // null은 에러 메시지를 지워주는 기능
+                }
+            }
+        })
+
+        // 휴대전화 번호의 형식이 맞으면 에러 메세지가 나오지 않고 형식이 틀리다면 에러 메세지를 사용자에게 보여준다.
+        editPhone_number.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                s: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+            }
+            override fun onTextChanged(
+                s: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+            }
+            override fun afterTextChanged(s: Editable) {
+                val phoneMatches = Regex("^01[016789][0-9]{3,4}[0-9]{4}$")
+                if (!s.matches(phoneMatches)) {
+                    PhoneNumberTextInputLayout.error = "올바른 휴대전화 번호가 아닙니다."
+                } else {
+                    PhoneNumberTextInputLayout.error = null // null은 에러 메시지를 지워주는 기능
+                }
+            }
+        })
+
 
         // 회원가입 버튼 눌렀을때 클릭 이벤트
         button_Register_Apply.setOnClickListener {
@@ -111,6 +193,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 }
