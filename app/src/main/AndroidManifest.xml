@@ -17,7 +17,9 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".Memo.WriteMemoActivity.WriteMemoActivity"></activity>
+        <activity android:name=".Picture.ImageUploadActivity.ImageUploadActivity"></activity>
+        <activity android:name=".Memo.ReadMemoActivity.ReadMemoActivity" />
+        <activity android:name=".Memo.WriteMemoActivity.WriteMemoActivity" />
         <activity
             android:name=".Register.RegisterActivity"
             android:parentActivityName=".Login.LoginActivity" />
