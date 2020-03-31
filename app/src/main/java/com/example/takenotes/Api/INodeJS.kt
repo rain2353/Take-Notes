@@ -41,4 +41,20 @@ interface INodeJS {
     fun MemoList(
         @Path("email") email: String?
     ): Observable<List<Memo>>
+
+    // 메모 수정
+    @POST("ChangeMemo")
+    @FormUrlEncoded
+    fun ChangeMemoUpload(
+        @Field("num") num: Int?,
+        @Field("email") email:String?,
+        @Field("title") title:String?,
+        @Field("content") content:String?,
+        @Field("created_at") created_at:String?
+    ): Observable<String>
+
+    // 메모 삭제
+    @POST("DeleteMemo")
+    @FormUrlEncoded
+    fun DeleteMemo(@Field("num") num: Int?): Observable<String>
 }
