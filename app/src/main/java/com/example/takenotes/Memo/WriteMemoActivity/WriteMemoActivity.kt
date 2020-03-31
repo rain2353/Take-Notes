@@ -79,9 +79,10 @@ class WriteMemoActivity : AppCompatActivity() {
                 Log.d("memo_writer", Common.UserInfomation?.email.toString())
             }
         }
-        return super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(item!!)
     }
 
+    // 서버와 통신하여 MySQL에 지정된 Table 에 저장한다.
     private fun WriteMemoUpload(email: String?, title: String?, content: String?) {
         compositeDisposable.add(myAPI.WriteMemoUpload(email, title, content)
             .subscribeOn(Schedulers.io())
