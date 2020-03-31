@@ -11,33 +11,60 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"
         app:srcCompat="@drawable/logo1" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="이메일 입력"
-        android:inputType="textEmailAddress" />
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center"
+        android:hint="이메일 입력">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
         android:hint="비밀번호 입력"
-        android:inputType="textPassword" />
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:maxLines="1"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/Loginbutton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인" />
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:text="로그인"
+        android:background="@drawable/trumpet"
+        android:backgroundTint="#00b8a9"/>
 
     <Button
         android:id="@+id/RegisterButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회원가입" />
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:text="회원가입"
+        android:background="@drawable/trumpet"
+        android:backgroundTint="#00b8a9"/>
 </LinearLayout>
