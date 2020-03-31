@@ -7,7 +7,7 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="글작성완료">글 작성 완료</string>
+    <string name="글작성완료">작성 완료</string>
     <string name="제목">제목</string>
     <string name="내용">내용</string>
 </resources>
