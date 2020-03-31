@@ -48,10 +48,13 @@ class LoginActivity : AppCompatActivity() {
         //onCreate함수내에서 퍼미션 체크및 권한 요청 함수 호출
         checkPermissions()
 
+
         // 로그인 버튼 눌렀을때 메인화면으로 이동.
 
         Loginbutton.setOnClickListener {
-            login(email.text.toString(), password.text.toString())
+            var Email = editEmail.text.toString()
+            var Password = editPassword.text.toString()
+            login(Email, Password)
 
         }
 
@@ -113,6 +116,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
+        Log.d("User",email)
+        Log.d("User",password)
         compositeDisposable.add(myAPI.loginUser(email, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
