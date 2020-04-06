@@ -100,7 +100,6 @@ class MemoRecyclerAdapter(internal val context: Context, internal val memo: List
         val retrofit = RetrofitClient.instance
         myAPI = retrofit.create(INodeJS::class.java)
 
-//        Log.d("MemoDeleteClick", memo[position].num.toString())
         DeleteMemo(memo[position].num)
         notifyItemRemoved(position)
         notifyItemRangeChanged(position,memo.size)
