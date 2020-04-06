@@ -4,9 +4,11 @@
     package="com.example.takenotes">
     <!-- 인터넷 연결 허용하는 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 사용자 휴대폰의 저장소를 읽거나 사용할수 있는 퍼미션 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 사용자 휴대폰의 카메라를 사용할수 있는 퍼미션 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 카메라 사용, 5.0(API 21)이상부터는 camera2 권장, 기본 내장 카메라 사용 시 권한 요청 필요 없음 -->
+    <uses-feature android:name="android.hardware.camera2" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +19,9 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".Picture.ImageUploadActivity.ImageUploadActivity"></activity>
+        <activity android:name=".PictureViewPager.PictureViewPagerActivity" />
+        <activity android:name=".Picture.SeePictureActivity.SeePictureActivity" />
+        <activity android:name=".Picture.ImageUploadActivity.ImageUploadActivity" />
         <activity android:name=".Memo.ReadMemoActivity.ReadMemoActivity" />
         <activity android:name=".Memo.WriteMemoActivity.WriteMemoActivity" />
         <activity
