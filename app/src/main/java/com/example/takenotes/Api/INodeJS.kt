@@ -87,4 +87,14 @@ interface INodeJS {
     @POST("DeletePicture")
     @FormUrlEncoded
     fun DeletePicture(@Field("num") num: Int?): Observable<String>
+
+    // 사용자가 선택한 동영상 업로드
+    @POST("VideoUpload")
+    @Multipart
+    fun VideoUpload(
+        @Part video : MultipartBody.Part,
+        @Part ("email") email: String?,
+        @Part ("title") title: String?,
+        @Part ("content") content: String?
+    ) : Call<String>
 }
