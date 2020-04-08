@@ -14,15 +14,14 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.NonNull
+import com.bumptech.glide.Glide
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Common.Common
-import com.example.takenotes.PictureViewPager.Fragment.*
 import com.example.takenotes.PictureViewPager.PictureViewPagerActivity
 import com.example.takenotes.R
 import com.example.takenotes.Utils.ProgressRequestBody
 import com.ipaulpro.afilechooser.utils.FileUtils
-import com.squareup.picasso.Picasso
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_see_picture.*
 import okhttp3.MultipartBody
@@ -70,9 +69,8 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         //사용자가 업로드한 사진들을 볼수 있게 한다.
         if (Common.SelectPicture?.file != "empty") {  // DB에 저장된 값이 "empty" 이면 ImageView 를 사용자에게 보이지 않게한다.
             SeePicture.visibility =
-                View.VISIBLE     // DB에 저장된 값이 "empty" 가 아니면 ImageView 를 보이게 하고 Picasso Library 를 사용하여 사용자에게 업로드한 사진을 보여준다.
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file)
-                .resize(700, 700).into(SeePicture)
+                View.VISIBLE     // DB에 저장된 값이 "empty" 가 아니면 ImageView 를 보이게 하고 Glide Library 를 사용하여 사용자에게 업로드한 사진을 보여준다.
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file).override(700,700).into(SeePicture)
             num = 1   // 뷰페이저에서 생성 할 Fragment 의 개수
         } else {
             SeePicture.visibility = View.GONE
@@ -80,8 +78,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file1 != "empty") {
             SeePicture1.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file1)
-                .resize(700, 700).into(SeePicture1)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file1).override(700,700).into(SeePicture1)
             num = 2
         } else {
             SeePicture1.visibility = View.GONE
@@ -89,8 +86,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file2 != "empty") {
             SeePicture2.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file2)
-                .resize(700, 700).into(SeePicture2)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file2).override(700,700).into(SeePicture2)
             num = 3
         } else {
             SeePicture2.visibility = View.GONE
@@ -98,8 +94,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file3 != "empty") {
             SeePicture3.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file3)
-                .resize(700, 700).into(SeePicture3)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file3).override(700,700).into(SeePicture3)
             num = 4
         } else {
             SeePicture3.visibility = View.GONE
@@ -107,8 +102,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file4 != "empty") {
             SeePicture4.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file4)
-                .resize(700, 700).into(SeePicture4)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file4).override(700,700).into(SeePicture4)
             num = 5
         } else {
             SeePicture4.visibility = View.GONE
@@ -116,8 +110,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file5 != "empty") {
             SeePicture5.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file5)
-                .resize(700, 700).into(SeePicture5)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file5).override(700,700).into(SeePicture5)
             num = 6
         } else {
             SeePicture5.visibility = View.GONE
@@ -125,8 +118,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file6 != "empty") {
             SeePicture6.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file6)
-                .resize(700, 700).into(SeePicture6)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file6).override(700,700).into(SeePicture6)
             num = 7
         } else {
             SeePicture6.visibility = View.GONE
@@ -134,8 +126,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file7 != "empty") {
             SeePicture7.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file7)
-                .resize(700, 700).into(SeePicture7)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file7).override(700,700).into(SeePicture7)
             num = 8
         } else {
             SeePicture7.visibility = View.GONE
@@ -143,8 +134,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file8 != "empty") {
             SeePicture8.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file8)
-                .resize(700, 700).into(SeePicture8)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file8).override(700,700).into(SeePicture8)
             num = 9
         } else {
             SeePicture8.visibility = View.GONE
@@ -152,8 +142,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         }
         if (Common.SelectPicture?.file9 != "empty") {
             SeePicture9.visibility = View.VISIBLE
-            Picasso.get().load("http://10.0.2.2:3000/" + Common.SelectPicture?.file9)
-                .resize(700, 700).into(SeePicture9)
+            Glide.with(this).load("http://10.0.2.2:3000/" + Common.SelectPicture?.file9).override(700,700).into(SeePicture9)
             num = 10
         } else {
             SeePicture9.visibility = View.GONE
@@ -168,62 +157,52 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         // 사용자가 사진을 좀 더 자세하게 볼수 있게 하기위해서 뷰페이저를 사용하였다.
         // 사용자가 사진을 클릭하게되면 뷰페이저로 이동한다.
         SeePicture.setOnClickListener {
-            Log.d("페이서 숫자",num.toString())
             val intent = Intent(this, PictureViewPagerActivity::class.java)
             intent.putExtra("PagerNum", num!!)  // 뷰페이저에서 생성 할 Fragment 의 개수
             startActivity(intent)
         }
         SeePicture1.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자1",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture2.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자2",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture3.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자3",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture4.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자4",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture5.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자5",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture6.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자6",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture7.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자7",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture8.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자8",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
         SeePicture9.setOnClickListener {
             val intent = Intent(this, PictureViewPagerActivity::class.java)
-            Log.d("페이서 숫자9",num.toString())
             intent.putExtra("PagerNum",num!!)
             startActivity(intent)
         }
