@@ -58,8 +58,8 @@ dependencies {
     //RxJava
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
-    // Picasso 이미지 라이브러리.
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    // Glide 이미지 라이브러리
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'andhradroid.dev:aFilechooser:1.0.1'
     // 이미지를 줌인, 줌아웃 할수있는 PhotoView 라이브러리.
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
@@ -70,7 +70,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.5'
     implementation 'com.google.android.exoplayer:exoplayer-hls:2.10.5'
     // multiDex
-    implementation'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 }
