@@ -81,7 +81,7 @@ class PictureFragment : Fragment() {
             ))
     }
 
-    override fun onStart() {    // 메모를 작성하고 나왔을때 작성한 메모가 리스트 맨위에서 볼수 있도록 한다.
+    override fun onStart() {    // 사진을 업로드하고 나왔을때 업로드한 사진이 리스트 맨위에서 볼수 있도록 한다.
         ImageList(Common.UserInfomation?.email)
         super.onStart()
     }
