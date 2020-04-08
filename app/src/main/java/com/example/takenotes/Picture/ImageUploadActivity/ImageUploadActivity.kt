@@ -17,6 +17,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Common.Common
@@ -24,8 +25,6 @@ import com.example.takenotes.Picture.PictureFragment
 import com.example.takenotes.R
 import com.example.takenotes.Utils.ProgressRequestBody
 import com.ipaulpro.afilechooser.utils.FileUtils
-
-import com.squareup.picasso.Picasso
 
 import io.reactivex.disposables.CompositeDisposable
 
@@ -64,55 +63,55 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
             uri = Uri.parse(imageList[0].toString())
             ImageCheck.requestFocus()
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView1.setOnClickListener {
             uri = Uri.parse(imageList[1].toString())
             ImageCheck.requestFocus()
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView2.setOnClickListener {
             uri = Uri.parse(imageList[2].toString())
             ImageCheck.requestFocus()
             ImageCheck.visibility = View.VISIBLE
             ImageCheck.setImageURI(uri)
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView3.setOnClickListener {
             uri = Uri.parse(imageList[3].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView4.setOnClickListener {
             uri = Uri.parse(imageList[4].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView5.setOnClickListener {
             uri = Uri.parse(imageList[5].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView6.setOnClickListener {
             uri = Uri.parse(imageList[6].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView7.setOnClickListener {
             uri = Uri.parse(imageList[7].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView8.setOnClickListener {
             uri = Uri.parse(imageList[8].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
         SelectImageView9.setOnClickListener {
             uri = Uri.parse(imageList[9].toString())
             ImageCheck.visibility = View.VISIBLE
-            Picasso.get().load(uri).resize(900, 900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
         }
     }
 
@@ -269,54 +268,44 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
 
                                 when (i) {
                                     0 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView0)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView0)
                                         SelectImageView0.visibility = View.VISIBLE
                                     }
                                     1 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView1)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView1)
                                         SelectImageView1.visibility = View.VISIBLE
                                     }
                                     2 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView2)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView2)
                                         SelectImageView2.visibility = View.VISIBLE
                                     }
                                     3 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView3)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView3)
                                         SelectImageView3.visibility = View.VISIBLE
                                     }
                                     4 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView4)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView4)
                                         SelectImageView4.visibility = View.VISIBLE
 
                                     }
                                     5 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView5)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView5)
                                         SelectImageView5.visibility = View.VISIBLE
                                     }
                                     6 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView6)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView6)
                                         SelectImageView6.visibility = View.VISIBLE
                                     }
                                     7 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView7)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView7)
                                         SelectImageView7.visibility = View.VISIBLE
                                     }
                                     8 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView8)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView8)
                                         SelectImageView8.visibility = View.VISIBLE
                                     }
                                     9 -> {
-                                        Picasso.get().load(clipData.getItemAt(i).uri)
-                                            .resize(300, 300).into(SelectImageView9)
+                                        Glide.with(this).load(clipData.getItemAt(i).uri).override(300,300).into(SelectImageView9)
                                         SelectImageView9.visibility = View.VISIBLE
                                     }
                                 }
