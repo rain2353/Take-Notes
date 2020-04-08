@@ -4,6 +4,7 @@ package com.example.takenotes.Api
 import androidx.test.runner.permission.RequestPermissionCallable
 import com.example.takenotes.Model.Image
 import com.example.takenotes.Model.Memo
+import com.example.takenotes.Model.Video
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -97,4 +98,11 @@ interface INodeJS {
         @Part ("title") title: String?,
         @Part ("content") content: String?
     ) : Call<String>
+
+    // 업로드한 동영상 리스트 불러오기
+    @GET("VideoList/{email}")
+    fun VideoList(
+        @Path("email") email: String?
+    ): Observable<List<Video>>
+
 }
