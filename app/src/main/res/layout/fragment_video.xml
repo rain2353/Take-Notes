@@ -6,12 +6,9 @@
     tools:context=".Video.VideoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="동영상" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/VideoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

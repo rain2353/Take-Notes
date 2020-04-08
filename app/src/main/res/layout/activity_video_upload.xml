@@ -38,7 +38,7 @@
                 android:layout_marginBottom="10sp"
                 android:layout_gravity="center"
                 app:fastforward_increment ="5000"
-                app:rewind_increment="5000"/>
+                app:rewind_increment="5000" />
 
             <EditText
                 android:id="@+id/editTitle"
