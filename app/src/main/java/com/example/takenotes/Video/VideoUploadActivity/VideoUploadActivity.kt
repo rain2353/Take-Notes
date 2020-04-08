@@ -2,9 +2,13 @@ package com.example.takenotes.Video.VideoUploadActivity
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -31,6 +35,7 @@ import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
 
 
 class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallbacks {
@@ -42,7 +47,7 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
     lateinit var dialog: ProgressDialog
     val REQUEST_TAKE_ALBUM = 1
     private var selectedvideo: Uri? = null
-
+    private var videopath: String? = null
     private var ExoplayerView: PlayerView? = null
     private var player: SimpleExoPlayer? = null
 
@@ -105,6 +110,8 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
                 dialog.setCancelable(false)
                 dialog.max = 100
                 dialog.show()
+
+
                 val video = prepareFilePart("video", selectedvideo)
                 myAPI.VideoUpload(video, Common.UserInfomation?.email.toString(), editTitle.text.toString(), editContent.text.toString())
                     .enqueue(object : Callback<String> {
@@ -140,6 +147,9 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
             if (requestCode == REQUEST_TAKE_ALBUM) {
                 if (data != null) {
                     selectedvideo = data.data
+                    videopath = data.data!!.path
+                    Log.d("path_uri",selectedvideo.toString())
+                    Log.d("path",videopath)
                     if (selectedvideo != null) {
                         initializePlayer()
                     }
@@ -158,7 +168,7 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
         if (player == null) {
             player = ExoPlayerFactory.newSimpleInstance(this.applicationContext)
             //플레이어 연결
-            ExoplayerView?.setPlayer(player)
+            ExoplayerView?.player = player
         }
 
         val mediaSource: MediaSource = this.buildMediaSource(selectedvideo!!)!!
