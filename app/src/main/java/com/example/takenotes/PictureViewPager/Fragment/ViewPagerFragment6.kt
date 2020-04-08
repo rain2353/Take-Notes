@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.takenotes.Common.Common
 import com.example.takenotes.R
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_pager_fragment.*
 
 class ViewPagerFragment6: Fragment() {
@@ -20,7 +20,6 @@ class ViewPagerFragment6: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         //뷰 설정
-        Picasso.get().load("http://10.0.2.2:3000/"+ Common.SelectPicture?.file6).into(PictureView)
-
+        Glide.with(view!!.context).load("http://10.0.2.2:3000/"+Common.SelectPicture?.file6).into(PictureView)
     }
 }
