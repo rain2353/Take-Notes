@@ -10,7 +10,8 @@
     <string name="글작성완료">작성 완료</string>
     <string name="제목">제목</string>
     <string name="내용">내용</string>
-    <string name="사진선택">사진 선택</string>
+    <string name="선택">선택</string>
+    <string name="삭제">삭제</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
