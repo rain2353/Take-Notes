@@ -37,7 +37,8 @@ class LoginActivity : AppCompatActivity() {
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA,
-        Manifest.permission.WAKE_LOCK
+        Manifest.permission.WAKE_LOCK,
+        Manifest.permission.RECORD_AUDIO
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
