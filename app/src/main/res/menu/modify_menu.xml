@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/delete"
+        android:title="@string/삭제"
+        android:icon="@drawable/ic_delete_white_24dp"
+        app:showAsAction="always"
+        app:titleTextColor="#FFFFFF"/>
+
+    <item android:id="@+id/select"
+        android:title="@string/선택"
+        android:icon="@drawable/ic_attach_file_white_24dp"
+        app:showAsAction="always"
+        app:titleTextColor="#FFFFFF"/>
+    <item
+        android:id="@+id/upload_save"
+        android:title="@string/글작성완료"
+        app:showAsAction="always"
+        app:titleTextColor="#FFFFFF"/>
+
+</menu>

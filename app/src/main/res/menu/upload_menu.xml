@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/select_image"
-        android:title="@string/사진선택"
+        android:title="@string/선택"
         android:icon="@drawable/ic_attach_file_white_24dp"
         app:showAsAction="always"
         app:titleTextColor="#FFFFFF"/>
