@@ -21,7 +21,6 @@ import com.bumptech.glide.Glide
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Common.Common
-import com.example.takenotes.Picture.PictureFragment
 import com.example.takenotes.R
 import com.example.takenotes.Utils.ProgressRequestBody
 import com.ipaulpro.afilechooser.utils.FileUtils
@@ -30,7 +29,6 @@ import io.reactivex.disposables.CompositeDisposable
 
 import kotlinx.android.synthetic.main.activity_image_upload.*
 import okhttp3.*
-import okhttp3.MultipartBody.Part.createFormData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -130,7 +128,7 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(
-            R.menu.image_upload_menu,
+            R.menu.upload_menu,
             menu
         )       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
