@@ -105,4 +105,20 @@ interface INodeJS {
         @Path("email") email: String?
     ): Observable<List<Video>>
 
+    // 사용자가 수정한 동영상 업로드
+    @POST("VideoModify")
+    @Multipart
+    fun VideoModify(
+        @Part ("num") num: Int?,
+        @Part video : MultipartBody.Part,
+        @Part ("email") email: String?,
+        @Part ("title") title: String?,
+        @Part ("content") content: String?,
+        @Part ("created_at") created_at: String?
+    ) : Call<String>
+
+    // 동영상 삭제
+    @POST("DeleteVideo")
+    @FormUrlEncoded
+    fun DeleteVideo(@Field("num") num: Int?): Observable<String>
 }
