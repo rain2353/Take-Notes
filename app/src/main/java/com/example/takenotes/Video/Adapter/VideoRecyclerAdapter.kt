@@ -19,8 +19,7 @@ import com.example.takenotes.Video.VideoPlayActivity.VideoPlayActivity
 import io.reactivex.disposables.CompositeDisposable
 
 class VideoRecyclerAdapter(internal val context: Context, internal val video: List<Video>) :
-    RecyclerView.Adapter<VideoRecyclerAdapter.Holder>(),
-    ItemTouchHelperListener {
+    RecyclerView.Adapter<VideoRecyclerAdapter.Holder>(){
     lateinit var myAPI: INodeJS
     var compositeDisposable = CompositeDisposable()
     override fun onCreateViewHolder(
@@ -84,19 +83,5 @@ class VideoRecyclerAdapter(internal val context: Context, internal val video: Li
         }
 
     }
-    override fun onItemMove(from_position: Int, to_position: Int) {
-        TODO("Not yet implemented")
-    }
 
-    override fun onItemSwipe(position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onLeftClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onRightClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        TODO("Not yet implemented")
-    }
 }
