@@ -25,8 +25,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class PictureRecyclerAdapter(internal val context: Context, internal val image: List<Image>) :
-    RecyclerView.Adapter<PictureRecyclerAdapter.Holder>(),
-    ItemTouchHelperListener {
+    RecyclerView.Adapter<PictureRecyclerAdapter.Holder>(){
     lateinit var myAPI: INodeJS
     var compositeDisposable = CompositeDisposable()
     override fun onCreateViewHolder(
@@ -108,45 +107,5 @@ class PictureRecyclerAdapter(internal val context: Context, internal val image: 
         }
 
     }
-    override fun onItemMove(from_position: Int, to_position: Int) {
-        TODO("Not yet implemented")
-    }
 
-    override fun onItemSwipe(position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onLeftClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onRightClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        //Init API
-        val retrofit = RetrofitClient.instance
-        myAPI = retrofit.create(INodeJS::class.java)
-
-        DeletePicture(image[position].num)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position,image.size)
-    }
-
-    // 메모 삭제하기.
-    fun DeletePicture(num: Int?) {
-        compositeDisposable.add(myAPI.DeletePicture(num)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ message ->
-                Toast.makeText(context, "업로드한 사진을 삭제하였습니다.", Toast.LENGTH_SHORT).show()
-                Log.d("notice_delete", message.toString())
-
-
-            }
-                , { thr ->
-                    Toast.makeText(context, "사진을 삭제하지 못했습니다.", Toast.LENGTH_SHORT).show()
-                    Log.d("notice_delete", thr.message.toString())
-
-                }
-
-            ))
-    }
 }
