@@ -1,23 +1,17 @@
 package com.example.takenotes.Video
 
-import android.content.Context
+
 import android.content.Intent
-import android.graphics.Canvas
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Common.Common
-import com.example.takenotes.Controller.ItemTouchHelperCallback
-
 import com.example.takenotes.R
 import com.example.takenotes.Video.Adapter.VideoRecyclerAdapter
 import com.example.takenotes.Video.VideoUploadActivity.VideoUploadActivity
@@ -30,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_video.*
 class VideoFragment : Fragment() {
     lateinit var myAPI: INodeJS
     var compositeDisposable = CompositeDisposable()
-    var helper: ItemTouchHelper? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,21 +53,12 @@ class VideoFragment : Fragment() {
         compositeDisposable.add(myAPI.VideoList(email)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ Image ->
-                //ItemTouchHelper 생성
-                val videoSwipeClickListener = VideoRecyclerAdapter(context!!, Image)
-                helper = ItemTouchHelper( ItemTouchHelperCallback(videoSwipeClickListener))
-                helper!!.attachToRecyclerView(VideoRecyclerView)
-                VideoRecyclerView.addItemDecoration(object : RecyclerView.ItemDecoration(){
-                    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                        helper!!.onDraw(c, parent, state)
-                    }
-                })
-                VideoRecyclerView.adapter = videoSwipeClickListener
+            .subscribe({ Video ->
+                VideoRecyclerView.adapter = VideoRecyclerAdapter(context!!, Video)
                 (VideoRecyclerView.adapter as VideoRecyclerAdapter).notifyDataSetChanged()
             }
                 , { thr ->
-                    Log.d("MemoRecyclerView", thr.message.toString())
+                    Log.d("VideoRecyclerView", thr.message.toString())
                 }
 
             ))
