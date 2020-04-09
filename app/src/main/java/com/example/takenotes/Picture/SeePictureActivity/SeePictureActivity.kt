@@ -22,7 +22,9 @@ import com.example.takenotes.PictureViewPager.PictureViewPagerActivity
 import com.example.takenotes.R
 import com.example.takenotes.Utils.ProgressRequestBody
 import com.ipaulpro.afilechooser.utils.FileUtils
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_see_picture.*
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -215,7 +217,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         // 툴바 왼쪽 버튼 설정
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp)  // 왼쪽 버튼 이미지 설정
-        supportActionBar!!.title = "업로드한 사진 보기"
+        supportActionBar!!.title = "사진 보기"
         supportActionBar!!.setDisplayShowTitleEnabled(true)    // 타이틀 안보이게 하기
     }
 
@@ -223,7 +225,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(
-            R.menu.image_upload_menu,
+            R.menu.modify_menu,
             menu
         )       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
@@ -237,7 +239,10 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
                 finish()
                 return true
             }
-            R.id.select_image -> {      // 사용자 갤러리로 이동해서 사진을 선택할수있는 버튼.
+            R.id.delete -> {       // 삭제 버튼 누르면 게시글이 삭제 된다.
+                DeletePicture(Common.SelectPicture?.num)
+            }
+            R.id.select -> {      // 사용자 갤러리로 이동해서 사진을 선택할수있는 버튼.
                 val intent = Intent(Intent.ACTION_PICK)
                 intent.type = MediaStore.Images.Media.CONTENT_TYPE
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {   // 이미지를 다중선택 할수있는 안드로이드 버전만 다중선택 가능.
@@ -247,7 +252,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
                     startActivityForResult(intent, REQUEST_TAKE_ALBUM)
                 }
             }
-            R.id.image_upload_save -> {     // 글 작성 완료 버튼
+            R.id.upload_save -> {     // 글 작성 완료 버튼
                 images.clear()
 
                 for (i in 0 until imageList.size) {
@@ -302,5 +307,21 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
         val file = FileUtils.getFile(this, fileUri)
         val requestFile = ProgressRequestBody(file, this)
         return MultipartBody.Part.createFormData(partName, file.name, requestFile)
+    }
+
+    // 사진 삭제하기.
+    fun DeletePicture(num: Int?) {
+        compositeDisposable.add(myAPI.DeletePicture(num)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ message ->
+                Toast.makeText(this, "업로드한 사진을 삭제하였습니다.", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+                , { thr ->
+                    Toast.makeText(this, "사진을 삭제하지 못했습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+            ))
     }
 }
