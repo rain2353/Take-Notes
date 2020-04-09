@@ -2,13 +2,9 @@ package com.example.takenotes.Video.VideoUploadActivity
 
 import android.app.Activity
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -35,7 +31,6 @@ import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 
 
 class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallbacks {
@@ -47,7 +42,6 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
     lateinit var dialog: ProgressDialog
     val REQUEST_TAKE_ALBUM = 1
     private var selectedvideo: Uri? = null
-    private var videopath: String? = null
     private var ExoplayerView: PlayerView? = null
     private var player: SimpleExoPlayer? = null
 
@@ -81,7 +75,7 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(
-            R.menu.image_upload_menu,
+            R.menu.upload_menu,
             menu
         )       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
@@ -147,9 +141,6 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
             if (requestCode == REQUEST_TAKE_ALBUM) {
                 if (data != null) {
                     selectedvideo = data.data
-                    videopath = data.data!!.path
-                    Log.d("path_uri",selectedvideo.toString())
-                    Log.d("path",videopath)
                     if (selectedvideo != null) {
                         initializePlayer()
                     }
