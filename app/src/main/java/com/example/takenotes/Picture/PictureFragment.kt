@@ -1,25 +1,19 @@
 package com.example.takenotes.Picture
 
-import android.content.Context
+
 import android.content.Intent
-import android.graphics.Canvas
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.RetrofitClient
 import com.example.takenotes.Common.Common
-import com.example.takenotes.Controller.ItemTouchHelperCallback
 import com.example.takenotes.Picture.Adapter.PictureRecyclerAdapter
 import com.example.takenotes.Picture.ImageUploadActivity.ImageUploadActivity
-
 import com.example.takenotes.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -29,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_picture.*
 class PictureFragment : Fragment() {
     lateinit var myAPI: INodeJS
     var compositeDisposable = CompositeDisposable()
-    var helper: ItemTouchHelper? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,20 +56,11 @@ class PictureFragment : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ Image ->
-                //ItemTouchHelper 생성
-                val pictureSwipeClickListener = PictureRecyclerAdapter(context!!, Image)
-                helper = ItemTouchHelper( ItemTouchHelperCallback(pictureSwipeClickListener))
-                helper!!.attachToRecyclerView(PictureRecyclerView)
-                PictureRecyclerView.addItemDecoration(object : RecyclerView.ItemDecoration(){
-                    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                        helper!!.onDraw(c, parent, state)
-                    }
-                })
-                PictureRecyclerView.adapter = pictureSwipeClickListener
+                PictureRecyclerView.adapter = PictureRecyclerAdapter(context!!, Image)
                 (PictureRecyclerView.adapter as PictureRecyclerAdapter).notifyDataSetChanged()
             }
                 , { thr ->
-                    Log.d("MemoRecyclerView", thr.message.toString())
+                    Log.d("PictureRecyclerView", thr.message.toString())
                 }
 
             ))
