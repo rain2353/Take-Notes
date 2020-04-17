@@ -89,7 +89,7 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
         SelectImageView5.setOnClickListener {
             uri = Uri.parse(imageList[5].toString())
             ImageCheck.visibility = View.VISIBLE
-            Glide.with(this).load(uri).override(900,900).into(ImageCheck)
+            Glide.with(this).load(uri).override(900,900).into(ImageCheck) 
         }
         SelectImageView6.setOnClickListener {
             uri = Uri.parse(imageList[6].toString())
