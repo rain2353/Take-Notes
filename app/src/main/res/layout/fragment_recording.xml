@@ -6,12 +6,9 @@
     tools:context=".Recording.RecordingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="음성 녹음" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecodingRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

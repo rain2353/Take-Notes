@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.IRecyclerOnClick
 import com.example.takenotes.Api.RetrofitClient
+import com.example.takenotes.Api.ipaddress
 import com.example.takenotes.Common.Common
 import com.example.takenotes.Controller.ItemTouchHelperListener
 import com.example.takenotes.Model.Image
@@ -46,12 +47,12 @@ class PictureRecyclerAdapter(internal val context: Context, internal val image: 
         }else{
             holder.PictureTitleView.visibility = View.GONE
         }
-        Glide.with(context).load("http://10.0.2.2:3000/"+image[position].file).into(holder.PictureImageView)
+        Glide.with(context).load(ipaddress.ip+image[position].file).into(holder.PictureImageView)
         if (image[position].file4 != "empty"){
-            Glide.with(context).load("http://10.0.2.2:3000/"+image[position].file1).override(200,200).into(holder.PictureImageView1)
-            Glide.with(context).load("http://10.0.2.2:3000/"+image[position].file2).override(200,200).into(holder.PictureImageView2)
-            Glide.with(context).load("http://10.0.2.2:3000/"+image[position].file3).override(200,200).into(holder.PictureImageView3)
-            Glide.with(context).load("http://10.0.2.2:3000/"+image[position].file4).override(200,200).into(holder.PictureImageView4)
+            Glide.with(context).load(ipaddress.ip+image[position].file1).override(200,200).into(holder.PictureImageView1)
+            Glide.with(context).load(ipaddress.ip+image[position].file2).override(200,200).into(holder.PictureImageView2)
+            Glide.with(context).load(ipaddress.ip+image[position].file3).override(200,200).into(holder.PictureImageView3)
+            Glide.with(context).load(ipaddress.ip+image[position].file4).override(200,200).into(holder.PictureImageView4)
         }else{
             holder.ImagesLinear.visibility = View.GONE
         }

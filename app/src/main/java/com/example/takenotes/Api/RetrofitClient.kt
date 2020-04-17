@@ -12,7 +12,7 @@ object RetrofitClient {
             if(ourInstance == null)
 
                 ourInstance = Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:3000/") //10.0.2.2 is localhost on emulator
+                    .baseUrl(ipaddress.ip)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())

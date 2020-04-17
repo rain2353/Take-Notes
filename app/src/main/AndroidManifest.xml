@@ -5,11 +5,12 @@
     <!-- 인터넷 연결 허용하는 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 사용자 휴대폰의 저장소를 읽거나 사용할수 있는 퍼미션 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 사용자 휴대폰의 카메라를 사용할수 있는 퍼미션 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 사용자 휴대폰의 저장소를 사용할수 있는 퍼미션 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 사용자 휴대폰의 저장소를 사용할수 있는 퍼미션 -->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 카메라 사용, 5.0(API 21)이상부터는 camera2 권장, 기본 내장 카메라 사용 시 권한 요청 필요 없음 -->
     <uses-feature android:name="android.hardware.camera2" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>  <!-- 녹음을 하기위해 마이크의 권한을 얻는다.-->
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 녹음을 하기위해 마이크의 권한을 얻는다. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -21,8 +22,12 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".Video.FullScreen.FullScreenActivity"
-            android:screenOrientation="fullSensor"/>
+        <activity android:name=".Recording.ListenAudioActivity.ListenAudioActivity"></activity>
+        <activity android:name=".Recording.VoiceRecodingActivity.VoiceRecodingActivity" />
+        <activity
+            android:name=".Video.FullScreen.FullScreenActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Video.VideoPlayActivity.VideoPlayActivity" />
         <activity android:name=".Video.VideoUploadActivity.VideoUploadActivity" />
         <activity android:name=".PictureViewPager.PictureViewPagerActivity" />

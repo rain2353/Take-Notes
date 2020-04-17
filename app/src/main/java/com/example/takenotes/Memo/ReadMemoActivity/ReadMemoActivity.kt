@@ -62,7 +62,7 @@ class ReadMemoActivity : AppCompatActivity() {
                 finish()
                 return true
             }
-            R.id.write_memo_save -> {     // 글 작성 완료 버튼
+            R.id.save -> {     // 글 작성 완료 버튼
                 when {
                     editTitle.text.isEmpty() -> {
                         editTitle.requestFocus()

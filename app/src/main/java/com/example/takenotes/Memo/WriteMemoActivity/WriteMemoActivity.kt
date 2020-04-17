@@ -58,7 +58,7 @@ class WriteMemoActivity : AppCompatActivity() {
                 finish()
                 return true
             }
-            R.id.write_memo_save -> {     // 글 작성 완료 버튼
+            R.id.save -> {     // 글 작성 완료 버튼
                 if (editMemoTitle.text.isEmpty()) {
                     editMemoTitle.requestFocus()
                     Toast.makeText(this, "메모 제목을 입력해주세요.", Toast.LENGTH_SHORT).show()

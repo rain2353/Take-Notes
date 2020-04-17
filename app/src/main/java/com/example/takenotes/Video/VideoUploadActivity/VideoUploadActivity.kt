@@ -105,7 +105,7 @@ class VideoUploadActivity : AppCompatActivity(), VideoRequestBody.UploadCallback
                 dialog.max = 100
                 dialog.show()
 
-
+                Log.d("filenameVideo",selectedvideo.toString())
                 val video = prepareFilePart("video", selectedvideo)
                 myAPI.VideoUpload(video, Common.UserInfomation?.email.toString(), editTitle.text.toString(), editContent.text.toString())
                     .enqueue(object : Callback<String> {

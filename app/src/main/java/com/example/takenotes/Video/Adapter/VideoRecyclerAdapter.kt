@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.takenotes.Api.INodeJS
 import com.example.takenotes.Api.IRecyclerOnClick
+import com.example.takenotes.Api.ipaddress
 import com.example.takenotes.Common.Common
 import com.example.takenotes.Controller.ItemTouchHelperListener
 import com.example.takenotes.Model.Video
@@ -40,7 +41,7 @@ class VideoRecyclerAdapter(internal val context: Context, internal val video: Li
         }else{
             holder.VideoTitleView.visibility = View.GONE
         }
-        Glide.with(context).load("http://10.0.2.2:3000/"+video[position].video).override(200,200).into(holder.VideoImageView)
+        Glide.with(context).load(ipaddress.ip+video[position].video).override(200,200).into(holder.VideoImageView)
         holder.VideoUpdateView.text = video[position].updated_at
 
         holder.setClick(object : IRecyclerOnClick {

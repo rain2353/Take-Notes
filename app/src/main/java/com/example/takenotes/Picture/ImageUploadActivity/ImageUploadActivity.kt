@@ -143,7 +143,7 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
                 return true
             }
             R.id.select_image -> {      // 사용자 갤러리로 이동해서 사진을 선택할수있는 버튼.
-                val intent = Intent(Intent.ACTION_PICK)
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.type = MediaStore.Images.Media.CONTENT_TYPE
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {   // 이미지를 다중선택 할수있는 안드로이드 버전만 다중선택 가능.
                     intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
@@ -230,9 +230,11 @@ class ImageUploadActivity : AppCompatActivity(), ProgressRequestBody.UploadCallb
                     if (data?.clipData == null) {
                         Log.i(
                             "1. single choice",
-                            String.valueOf(data?.clipData)
+                            String.valueOf(data?.data)
                         )
-                        imageList.add(Uri.parse(data?.clipData))
+                        imageList.add(data?.data!!)
+                        Glide.with(this).load(data?.data).override(300,300).into(SelectImageView0)
+                        SelectImageView0.visibility = View.VISIBLE
                     } else {
                         val clipData: ClipData = data.clipData!!
                         Log.i("clipdata", clipData.itemCount.toString())

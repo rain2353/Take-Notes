@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.takenotes.Api.ipaddress
 import com.example.takenotes.Common.Common
 import com.example.takenotes.R
 import kotlinx.android.synthetic.main.view_pager_fragment.*
@@ -20,6 +21,6 @@ class ViewPagerFragment5: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         //뷰 설정
-        Glide.with(view!!.context).load("http://10.0.2.2:3000/"+Common.SelectPicture?.file5).into(PictureView)
+        Glide.with(view!!.context).load(ipaddress.ip+Common.SelectPicture?.file5).into(PictureView)
     }
 }

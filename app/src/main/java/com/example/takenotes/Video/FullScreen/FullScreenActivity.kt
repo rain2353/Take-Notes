@@ -39,7 +39,7 @@ class FullScreenActivity : AppCompatActivity() {
             mediaFactory.createMediaSource(Uri.parse(videoUrl))
         player!!.prepare(mediaSource)
         player!!.setPlayWhenReady(true)
-
+        // 사용자가 전체화면 버튼을 누른 시점부터 재생한다.
         player!!.seekTo(currentPos)
     }
 }
