@@ -22,7 +22,7 @@ import io.reactivex.disposables.CompositeDisposable
 class VideoRecyclerAdapter(internal val context: Context, internal val video: List<Video>) :
     RecyclerView.Adapter<VideoRecyclerAdapter.Holder>(){
     lateinit var myAPI: INodeJS
-    var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable() 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
