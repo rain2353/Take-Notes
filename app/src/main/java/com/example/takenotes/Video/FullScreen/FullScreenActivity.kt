@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import kotlinx.android.synthetic.main.activity_full_screen.*
 
 
-class FullScreenActivity : AppCompatActivity() {
+class FullScreenActivity : AppCompatActivity() { 
 
 
     private var player: SimpleExoPlayer? = null
