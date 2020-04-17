@@ -2,6 +2,7 @@ package com.example.takenotes.Api
 
 
 import androidx.test.runner.permission.RequestPermissionCallable
+import com.example.takenotes.Model.Audio
 import com.example.takenotes.Model.Image
 import com.example.takenotes.Model.Memo
 import com.example.takenotes.Model.Video
@@ -84,6 +85,39 @@ interface INodeJS {
         @Path("email") email: String?
     ): Observable<List<Image>>
 
+    // 사진 수정
+    @POST("ImageModify")
+    @Multipart
+    fun ImageModify(
+        @Part ("num") num: Int?,
+        @Part files : ArrayList<MultipartBody.Part>,
+        @Part ("email") email: String?,
+        @Part ("title") title: String?,
+        @Part ("content") content: String?,
+        @Part ("created_at") created_at: String?
+    ) : Call<String>
+
+    // 사진 제외하고 텍스트만 수정
+    @POST("ImageTextModify")
+    @FormUrlEncoded
+    fun ImageTextModify(
+        @Field("num") num: Int?,
+        @Field("email") email:String?,
+        @Field("title") title:String?,
+        @Field("content") content:String?,
+        @Field("file") file:String?,
+        @Field("file1") file1:String?,
+        @Field("file2") file2:String?,
+        @Field("file3") file3:String?,
+        @Field("file4") file4:String?,
+        @Field("file5") file5:String?,
+        @Field("file6") file6:String?,
+        @Field("file7") file7:String?,
+        @Field("file8") file8:String?,
+        @Field("file9") file9:String?,
+        @Field("created_at") created_at:String?
+    ): Observable<String>
+
     // 사진 삭제
     @POST("DeletePicture")
     @FormUrlEncoded
@@ -117,8 +151,67 @@ interface INodeJS {
         @Part ("created_at") created_at: String?
     ) : Call<String>
 
+    // 동영상 제외하고 텍스트만 수정
+    @POST("VideoTextModify")
+    @FormUrlEncoded
+    fun VideoTextModify(
+        @Field("num") num: Int?,
+        @Field("email") email:String?,
+        @Field("title") title:String?,
+        @Field("content") content:String?,
+        @Field("video") video:String?,
+        @Field("created_at") created_at:String?
+    ): Observable<String>
+
     // 동영상 삭제
     @POST("DeleteVideo")
     @FormUrlEncoded
     fun DeleteVideo(@Field("num") num: Int?): Observable<String>
+
+
+    // 사용자가 녹음한 음성파일을 업로드한다.
+    @POST("VoiceUpload")
+    @Multipart
+    fun VoiceUpload(
+        @Part audio : MultipartBody.Part,
+        @Part ("email") email: String?,
+        @Part ("title") title: String?,
+        @Part ("content") content: String?
+    ) : Call<String>
+
+    // 업로드한 음성녹음 리스트 불러오기
+    @GET("AudioList/{email}")
+    fun AudioList(
+        @Path("email") email: String?
+    ): Observable<List<Audio>>
+
+
+    // 사용자가 수정한 음성녹음 파일 업로드
+    @POST("AudioModify")
+    @Multipart
+    fun AudioModify(
+        @Part ("num") num: Int?,
+        @Part video : MultipartBody.Part,
+        @Part ("email") email: String?,
+        @Part ("title") title: String?,
+        @Part ("content") content: String?,
+        @Part ("created_at") created_at: String?
+    ) : Call<String>
+
+    // 음성녹음 파일 제외하고 수정
+    @POST("AudioTextModify")
+    @FormUrlEncoded
+    fun AudioTextModify(
+        @Field("num") num: Int?,
+        @Field("email") email:String?,
+        @Field("title") title:String?,
+        @Field("content") content:String?,
+        @Field("audio") audio:String?,
+        @Field("created_at") created_at:String?
+    ): Observable<String>
+
+    // 음성녹음 삭제
+    @POST("DeleteAudio")
+    @FormUrlEncoded
+    fun DeleteAudio(@Field("num") num: Int?): Observable<String>
 }
