@@ -37,7 +37,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListenAudioActivity : AppCompatActivity(), AudioRequestBody.UploadCallbacks {
-    override fun onProgressUpdate(percentage: Int) {
+    override fun onProgressUpdate(percentage: Int) { 
         dialog.progress = percentage
     }
 
