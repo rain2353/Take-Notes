@@ -20,7 +20,7 @@ class AudioRecyclerAdapter (internal val context: Context, internal val audio: L
         return Holder(view)
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int { 
         return audio.size
     }
 
