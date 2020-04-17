@@ -28,7 +28,7 @@ import io.reactivex.schedulers.Schedulers
 class PictureRecyclerAdapter(internal val context: Context, internal val image: List<Image>) :
     RecyclerView.Adapter<PictureRecyclerAdapter.Holder>(){
     lateinit var myAPI: INodeJS
-    var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable() 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
