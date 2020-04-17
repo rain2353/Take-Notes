@@ -13,7 +13,7 @@ class AudioRequestBody(private val mFile: File, private val mListener: UploadCal
     RequestBody() {
 
     interface UploadCallbacks {
-        fun onProgressUpdate(percentage: Int)
+        fun onProgressUpdate(percentage: Int) 
     }
 
     override fun contentType(): MediaType? {
