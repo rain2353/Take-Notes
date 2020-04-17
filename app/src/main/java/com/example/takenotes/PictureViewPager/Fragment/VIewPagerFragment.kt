@@ -21,7 +21,7 @@ class VIewPagerFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         //뷰 설정
-        Glide.with(view!!.context).load(ipaddress.ip+Common.SelectPicture?.file).into(PictureView)
+        Glide.with(view!!.context).load(ipaddress.ip+Common.SelectPicture?.file).into(PictureView) 
     }
 
 }
