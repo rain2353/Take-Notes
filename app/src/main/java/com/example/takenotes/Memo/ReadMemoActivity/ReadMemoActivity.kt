@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_read_memo.*
 class ReadMemoActivity : AppCompatActivity() {
 
     lateinit var myAPI: INodeJS
-    var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable() 
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
