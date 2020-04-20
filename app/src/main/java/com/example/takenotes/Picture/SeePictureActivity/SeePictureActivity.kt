@@ -382,6 +382,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
                             java.lang.String.valueOf(data?.data)
                         )
                         imageList.add(data?.data!!)
+                        photouri = data?.data
                         Glide.with(this).load(data.data).override(700, 700).into(SeePicture)
                         // 한장만 지원이 될 경우 다른 이미지뷰들은 보이지 않게 한다.
                         SeePicture.visibility = View.VISIBLE
@@ -406,6 +407,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
                             return
                         } else if (clipData.itemCount == 1) {
                             val dataStr = clipData.getItemAt(0).uri
+                            photouri = dataStr
                             Glide.with(this).load(clipData.getItemAt(0).uri).override(700, 700)
                                 .into(SeePicture)
                             SeePicture.visibility = View.VISIBLE
@@ -447,6 +449,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
 
                                 when (i) {
                                     0 -> {
+                                        photouri = clipData.getItemAt(i).uri
                                         Glide.with(this).load(clipData.getItemAt(0).uri)
                                             .override(700, 700).into(SeePicture)
                                         SeePicture.visibility = View.VISIBLE
