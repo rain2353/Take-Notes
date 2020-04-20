@@ -78,7 +78,7 @@
                         android:layout_gravity="center"
                         android:background="?android:attr/selectableItemBackground"
                         android:padding="10dp"
-                        android:src="@drawable/ic_mic_black_24dp" />
+                        android:src="@drawable/ic_mic_black_48dp" />
 
                     <ImageButton
                         android:id="@+id/imgBtStop"
@@ -87,7 +87,7 @@
                         android:layout_gravity="center"
                         android:background="?android:attr/selectableItemBackground"
                         android:padding="15dp"
-                        android:src="@drawable/ic_stop_black_24dp"
+                        android:src="@drawable/ic_stop_black_48dp"
                         android:visibility="gone" />
                 </LinearLayout>
 
@@ -107,7 +107,7 @@
                         android:background="?android:attr/selectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:src="@drawable/ic_play_circle_outline_black_24dp" />
+                        android:src="@drawable/ic_play_circle_outline_black_48dp" />
 
                     <SeekBar
                         android:id="@+id/seekBar"
