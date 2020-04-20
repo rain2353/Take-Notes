@@ -50,7 +50,7 @@ class ReadMemoActivity : AppCompatActivity() {
     // 툴바 메뉴 버튼을 설정
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
-        menuInflater.inflate(R.menu.write_memo_save, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
+        menuInflater.inflate(R.menu.modify_memo, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
     }
 
@@ -61,6 +61,9 @@ class ReadMemoActivity : AppCompatActivity() {
             android.R.id.home -> {        // 뒤로가기 버튼
                 finish()
                 return true
+            }
+            R.id.delete -> {   // 글 삭제 버튼.
+                DeleteMemo(Common.SelectMemo?.num)
             }
             R.id.save -> {     // 글 작성 완료 버튼
                 when {
@@ -104,5 +107,23 @@ class ReadMemoActivity : AppCompatActivity() {
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    // 메모 삭제하기.
+    fun DeleteMemo(num: Int?) {
+        compositeDisposable.add(myAPI.DeleteMemo(num)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ message ->
+                Toast.makeText(this, "메모를 삭제하였습니다.", Toast.LENGTH_SHORT).show()
+                finish()
+
+            }
+                , { thr ->
+                    Toast.makeText(this, "메모를 삭제하지 못했습니다.", Toast.LENGTH_SHORT).show()
+
+                }
+
+            ))
     }
 }
