@@ -201,7 +201,7 @@ class VoiceRecodingActivity : AppCompatActivity(), View.OnClickListener,
 
         mPlayer = null
         //showing the play button
-        imgViewPlay.setImageResource(R.drawable.ic_play_circle_outline_black_24dp)
+        imgViewPlay.setImageResource(R.drawable.ic_play_circle_outline_black_48dp)
         chronometer.stop()
     }
 
@@ -265,7 +265,7 @@ class VoiceRecodingActivity : AppCompatActivity(), View.OnClickListener,
         }
 
         //making the imageView pause button
-        imgViewPlay.setImageResource(R.drawable.ic_pause_circle_outline_black_24dp)
+        imgViewPlay.setImageResource(R.drawable.ic_pause_circle_outline_black_48dp)
 
         seekBar.progress = lastProgress
         mPlayer!!.seekTo(lastProgress)
@@ -274,7 +274,7 @@ class VoiceRecodingActivity : AppCompatActivity(), View.OnClickListener,
         chronometer.start()
 
         mPlayer!!.setOnCompletionListener(MediaPlayer.OnCompletionListener {
-            imgViewPlay.setImageResource(R.drawable.ic_play_circle_outline_black_24dp)
+            imgViewPlay.setImageResource(R.drawable.ic_play_circle_outline_black_48dp)
             isPlaying = false
             chronometer.stop()
             chronometer.base = SystemClock.elapsedRealtime()
