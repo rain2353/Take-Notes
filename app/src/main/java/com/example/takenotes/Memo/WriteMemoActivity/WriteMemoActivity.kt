@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_write_memo.*
 
 class WriteMemoActivity : AppCompatActivity() {
 
-    lateinit var myAPI: INodeJS
+    lateinit var myAPI: INodeJS 
     var compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {

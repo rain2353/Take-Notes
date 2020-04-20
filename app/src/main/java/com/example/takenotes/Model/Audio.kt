@@ -8,6 +8,6 @@ class Audio {
     var content: String? = null
     var audio: String? = null
     var created_at: String? = null
-    var updated_at: String? = null
+    var updated_at: String? = null 
 
 }

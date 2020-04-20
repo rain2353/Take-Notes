@@ -91,7 +91,7 @@ class SeePictureActivity : AppCompatActivity(), ProgressRequestBody.UploadCallba
                 .into(SeePicture1)
             num = 2
         } else {
-            SeePicture1.visibility = View.GONE
+            SeePicture1.visibility = View.GONE 
 
         }
         if (Common.SelectPicture?.file2 != "empty") {

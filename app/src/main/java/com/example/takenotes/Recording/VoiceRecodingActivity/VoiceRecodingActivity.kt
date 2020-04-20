@@ -46,7 +46,7 @@ class VoiceRecodingActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     lateinit var myAPI: INodeJS
-    var compositeDisposable = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable() 
     lateinit var dialog: ProgressDialog
     private var mRecorder: MediaRecorder? = null
     private var mPlayer: MediaPlayer? = null

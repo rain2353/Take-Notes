@@ -55,7 +55,7 @@ class RecordingFragment : Fragment() {
     private fun AudioList(email: String?) {
         compositeDisposable.add(myAPI.AudioList(email)
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(AndroidSchedulers.mainThread()) 
             .subscribe({ Audio ->
                 RecodingRecyclerView.adapter = AudioRecyclerAdapter(context!!, Audio)
                 (RecodingRecyclerView.adapter as AudioRecyclerAdapter).notifyDataSetChanged()

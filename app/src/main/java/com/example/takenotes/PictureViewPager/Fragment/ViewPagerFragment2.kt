@@ -20,7 +20,7 @@ class ViewPagerFragment2: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //뷰 설정
+        //뷰 설정 
         Glide.with(view!!.context).load(ipaddress.ip+Common.SelectPicture?.file2).into(PictureView)
 
     }

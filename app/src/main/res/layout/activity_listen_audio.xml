@@ -7,7 +7,7 @@
     tools:context=".Video.VideoPlayActivity.VideoPlayActivity">
 
     <ScrollView
-        android:id="@+id/scrollView6"
+        android:id="@+id/scrollView6" 
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

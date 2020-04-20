@@ -13,7 +13,7 @@ object Common {
 
     val api: INodeJS
         get() {
-            val retrofit = RetrofitClient.instance
+            val retrofit = RetrofitClient.instance 
             return retrofit.create(INodeJS::class.java)
         }
 }

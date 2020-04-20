@@ -1,7 +1,7 @@
 package com.example.takenotes.Model
 
 class Image {
-    var num : Int? = null
+    var num : Int? = null 
     var email : String? = null
     var title : String? = null
     var content : String? = null
