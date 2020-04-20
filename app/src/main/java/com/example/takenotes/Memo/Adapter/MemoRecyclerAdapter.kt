@@ -112,14 +112,9 @@ class MemoRecyclerAdapter(internal val context: Context, internal val memo: List
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ message ->
                 Toast.makeText(context, "메모를 삭제하였습니다.", Toast.LENGTH_SHORT).show()
-                Log.d("notice_delete", message.toString())
-
-
             }
                 , { thr ->
                     Toast.makeText(context, "메모를 삭제하지 못했습니다.", Toast.LENGTH_SHORT).show()
-                    Log.d("notice_delete", thr.message.toString())
-
                 }
 
             ))
