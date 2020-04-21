@@ -23,4 +23,6 @@ https://github.com/rain2353/Take_Notes_Server
  
 Take Notes 어플 시연 동영상 입니다.
 
-[![Video Label](http://img.youtube.com/vi/dBblHLPTJkw/0.jpg)](https://youtu.be/dBblHLPTJkw?t=0s) Video Label
+[![Video Label](http://img.youtube.com/vi/dBblHLPTJkw/0.jpg)](https://youtu.be/dBblHLPTJkw?t=0s)
+
+
