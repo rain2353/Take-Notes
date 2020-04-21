@@ -20,7 +20,4 @@
 https://github.com/rain2353/Take_Notes_Server
 
  # 동영상
- <div>
- <iframe width="640" height="360" src="https://youtu.be/dBblHLPTJkw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
- 
- </div>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/dBblHLPTJkw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
