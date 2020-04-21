@@ -54,7 +54,10 @@ Take Notes 어플 시연 동영상 입니다.
 </div>
 
 사용자가 제목을 적지 않고 내용만 입력해도 DB에 저장이 되고 
-저장된 메모를 사용자에게 리스트로 보여주며 선택을 하면 메모를 수정하거나 삭제가 가능한 툴바가 있고 작성한 메모를 볼 수 있게 합니다.
+
+저장된 메모를 사용자에게 리스트로 보여주며 
+
+선택을 하면 메모를 수정하거나 삭제가 가능한 툴바가 있고 작성한 메모를 볼 수 있게 합니다.
 
 # Picture
 
@@ -68,6 +71,7 @@ Take Notes 어플 시연 동영상 입니다.
   <img src="https://user-images.githubusercontent.com/48168860/79819699-7997aa00-83c5-11ea-8e10-5a8191800388.png" width="200"></img>
   <img src="https://user-images.githubusercontent.com/48168860/79819700-7a304080-83c5-11ea-9182-de126beea34a.png" width="200"></img>
 </div>
+
 
 사용자는 최대 10장의 사진을 업로드할수 있으며, 사진을 수정하고 글의 삭제가 가능합니다.
 
@@ -88,6 +92,7 @@ Glide 이미지 라이브러리를 사용하여 DB에 저장된 이미지들을 
   <img src="https://user-images.githubusercontent.com/48168860/79820307-e5c6dd80-83c6-11ea-9956-0b0ab9e410af.png" width="200"></img>
 </div>
 
+
 동영상은 ExoPlayer 라이브러리를 사용하였고 비디오컨트롤러를 만들어 전체화면을 구현하였습니다.
 
 # Voice Recording
@@ -103,6 +108,7 @@ Glide 이미지 라이브러리를 사용하여 DB에 저장된 이미지들을 
   <img src="https://user-images.githubusercontent.com/48168860/79820597-959c4b00-83c7-11ea-975b-55fcf9711ed2.png" width="200"></img>
   <img src="https://user-images.githubusercontent.com/48168860/79820598-959c4b00-83c7-11ea-8f04-d1da4c1a57ac.png" width="200"></img>
 </div>
+
 
 사용자가 직접 음성녹음을 하고 음성녹음 한 파일을 업로드하여 저장합니다.
 
